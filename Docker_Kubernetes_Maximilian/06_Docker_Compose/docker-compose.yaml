@@ -1,0 +1,52 @@
+version: "3.8"
+services:
+  mongodb:
+    # container_name: mongodb
+    image: "mongo"
+    volumes:
+      - data:/data/db
+  # environment:
+      # MONGO_INITDB_ROOT_USERNAME: yulian
+      # - MONGO_INITDB_ROOT_USERNAME=yulian
+      # - MONGO_INITDB_ROOT_PASSWORD=secret
+    env_file:
+      - ./env/mongo.env
+    # Docker Compose will automatically create network, so it's not necessary to create it manually
+    # networks:
+      # - goals-net
+  backend:
+    # image: "goals_backend"
+    # build: ./backend
+    # if you named Dockerfile differently
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+      # args:
+        # some-arg: 1
+    ports:
+      - "80:80"
+    volumes:
+      - logs:/app/logs
+      # in Docker Compose you can use relative path for bind mount.
+      - ./backend:/app
+      - /app/node_modules
+    env_file:
+      - ./env/backend.env
+    depends_on:
+      - mongodb
+      # - ...
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend/src:/app/src
+    stdin_open: true
+    tty: true
+    depends_on:
+      - backend
+
+# You should list named volumes here
+volumes:
+  data:
+  logs:

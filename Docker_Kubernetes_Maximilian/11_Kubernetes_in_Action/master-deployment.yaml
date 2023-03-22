@@ -1,0 +1,41 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+spec:
+  selector:
+    app: "second-app"
+  ports:
+    - protocol: 'TCP'
+      port: 80
+      targetPort: 8080
+  #ClusterIP, NodePort, LoadBalancer
+  type: LoadBalancer
+
+# --- to identify new object
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "second-app-deployment"
+spec:
+  replicas: 1
+  selector:
+    #matchLabels:
+      #app: "second-app"
+      #tier: backend
+    matchExpressions:
+      - {key: app, operator: In, values: ["second-app", "first-app"]}
+  template:
+    metadata:
+      labels:
+        app: "second-app"
+        #may have additional labels
+        tier: backend
+    spec:
+      containers:
+        - name: second-node
+          image: khyulian/kube_test
+        #- name: ...
+        #  image: ...

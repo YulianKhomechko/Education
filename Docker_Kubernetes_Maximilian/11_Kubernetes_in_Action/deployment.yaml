@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "second-app-deployment"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: "second-app"
+      tier: backend
+    #matchExpressions
+  template:
+    metadata:
+      labels:
+        app: "second-app"
+        #may have additional labels
+        tier: backend
+    spec:
+      containers:
+        - name: second-node
+          image: khyulian/kube_test
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            periodSeconds: 10
+            initialDelaySeconds: 5
+        #- name: ...
+        #  image: ...

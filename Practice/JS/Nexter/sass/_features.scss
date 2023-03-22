@@ -1,0 +1,41 @@
+.features {
+  // grid-item
+  grid-column: center-start / center-end;
+
+  @supports (display: grid) {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+    // grid-template-rows: auto auto;
+    grid-gap: 6rem;
+    align-items: start;
+  }
+
+  margin: 15rem 0;
+
+  @media only screen and (max-width: $bp-small) {
+    margin: 8rem 0;
+  }
+}
+
+.feature {
+  @supports (display: grid) {
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    // grid-template-rows: auto auto;
+    // grid-row-gap: 1.5rem;
+    // grid-column-gap: 2.5rem;
+    grid-gap: 1.5rem 2.5rem;
+  }
+
+  &__icon {
+    fill: $color-primary;
+    width: 4.5rem;
+    height: 4.5rem;
+    grid-row: 1 / span 2; // end of explicit grid
+    transform: translateY(-1rem);
+  }
+
+  &__text {
+    font-size: 1.6rem;
+  }
+}

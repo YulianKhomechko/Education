@@ -1,0 +1,43 @@
+/* --- Reset Styles --- */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+img, picture, svg, video {
+    display: block;
+    max-width: 100%;
+}
+
+input, textarea, button, select {
+    font: inherit;
+}
+
+body {
+    min-height: 100vh;
+    font-family: sans-serif;
+    background-color: #F8F8F8;
+}
+
+main, header {
+    padding: 0 2rem;
+    max-width: 1200px;
+    color: #333;
+}
+
+header {
+    margin-bottom: 30px;
+}
+
+.google-btn{
+    padding: 10px 20px;
+    border-radius: 3px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    background: #ff5353;
+}

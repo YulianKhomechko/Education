@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <style>
+      nav {
+        background: #4169E1;
+        padding: 1rem 2rem;
+        margin-bottom: 4rem;
+      }
+
+      nav ul {
+        display: flex;
+        align-items: center;
+        padding: 0;
+      }
+
+      nav li {
+        list-style-type: none;
+        display: inline-block;
+        margin-right: 10px;
+      }
+
+      nav li:nth-child(1) {
+        margin-right: auto;
+      }
+
+      nav li:hover {
+        opacity: 0.9;
+      }
+
+      nav a {
+        display: block;
+        padding: 10px 20px;
+        border-radius: 3px;
+        color: #fff;
+        font-size: 18px;
+        background: rgba(255, 255, 255, 0.2);
+        text-decoration: none;
+      }
+    </style>
+</head>
+<body>
+<nav>
+    <ul>
+        <li><a href="/home">Homepage</a></li>
+        <% if (user) { %>
+            <li><a href="/user/profile">Profile</a></li>
+            <li><a href="/auth/logout">Log out</a></li>
+        <% } else { %>
+            <li><a href="/auth/login">Login</a></li>
+        <% } %>
+    </ul>
+</nav>
+</body>
+</html>

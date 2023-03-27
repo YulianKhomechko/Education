@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+  server:
+    build: .
+    image: khyulian/go-blended-app
+    container_name: go-blended-server
+    env_file:
+      - .env.example
+    ports:
+      - "80:80"

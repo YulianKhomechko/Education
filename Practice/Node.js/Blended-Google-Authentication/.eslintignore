@@ -1,0 +1,9 @@
+node_modules/
+.idea/
+.vscode/
+build/
+dist/
+coverage/
+.env.example
+webpack-js.config.js
+webpack.config.ts

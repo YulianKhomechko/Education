@@ -1,2 +1,4 @@
 node_modules/
 .idea/
+build/
+Practice/Node.js/Blended-Google-Authentication/.env.example

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="http://localhost:80/css/main.css"/>
+    <style>
+        .profile {
+            display: flex;
+            column-gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            border: 1px solid #E8E8E8;
+            border-radius: 4px;
+            padding: 1rem 2rem;
+            background-color: #FFFFFF;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile__picture {
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .profile__username {
+            line-height: 1.6;
+        }
+
+        .profile__email {
+            color: #808080;
+        }
+    </style>
+    <title>OAuth2.0 Profile</title>
+</head>
+<body>
+<%- include('./../components/header.ejs') %>
+
+<div class="profile">
+    <div class="profile__picture">
+        <img src="<%= user.thumbnail %>"/>
+    </div>
+    <div class="profile__userinfo">
+        <h3 class="profile__username"><%= user.username %></h3>
+        <h5 class="profile__email"><%= user.email %></h5>
+    </div>
+</div>
+</body>
+</html>

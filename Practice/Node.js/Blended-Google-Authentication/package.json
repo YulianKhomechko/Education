@@ -1,0 +1,68 @@
+{
+  "name": "nodejs-passport-oauth20",
+  "type": "commonjs",
+  "version": "1.0.3",
+  "main": "dist/app.js",
+  "engines": {
+    "node": "^18"
+  },
+  "description": "google authentication using passport",
+  "private": true,
+  "author": "Yulian Khomechko",
+  "license": "ISC",
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  },
+  "scripts": {
+    "start": "npm run build && cross-env NODE_ENV=PRODUCTION node dist/app.js",
+    "start:development": "cross-env NODE_ENV=DEVELOPMENT nodemon src/index.ts",
+    "test": "jest",
+    "build": "rm -rf dist && webpack --env production",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "cookie-session": "^2.0.0",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "mongoose": "^6.8.4",
+    "passport": "^0.5.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.12",
+    "@babel/preset-env": "^7.20.2",
+    "@types/cookie-session": "^2.0.44",
+    "@types/express": "^4.17.16",
+    "@types/jest": "^29.4.0",
+    "@types/mongoose": "^5.11.97",
+    "@types/passport": "^1.0.11",
+    "@types/passport-google-oauth20": "^2.0.11",
+    "@types/webpack-node-externals": "^2.5.3",
+    "@typescript-eslint/eslint-plugin": "^5.49.0",
+    "@typescript-eslint/parser": "^5.49.0",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^9.1.2",
+    "cross-env": "^7.0.3",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.0",
+    "jest": "^29.4.0",
+    "lint-staged": "^13.1.0",
+    "nodemon": "^2.0.20",
+    "passport-google-oauth20": "^2.0.0",
+    "prettier": "^2.8.1",
+    "ts-jest": "^29.0.5",
+    "ts-loader": "^9.4.2",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.4",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1",
+    "webpack-node-externals": "^3.0.0"
+  }
+}
